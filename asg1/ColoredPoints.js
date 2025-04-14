@@ -96,6 +96,9 @@ function addActionsForHtmlUI(){
   document.getElementById('sizeSlide').addEventListener('mouseup',  function() { g_selectedSize = this.value; });
   document.getElementById('circleSlide').addEventListener('mouseup', function() { g_selectedSeg = this.value; });
 
+  // SHREK BUTTON
+  document.getElementById('shrek').onclick = drawShrek;
+
 }
 
 function main() {
@@ -183,3 +186,401 @@ function sendTextToHTMl(text, htmlID){
   }
   htmlElm.innerHTML = text;
 }
+
+function drawShrek(){
+  // Clear the canvas first if you want to start a fresh drawing
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  
+  // ---------- left ear ----------
+  // Set the color to green.
+  gl.uniform4f(u_FragColor, 0.0, 1.0, 0.0, 1.0);
+  // Call drawTriangle with hardcoded vertices. (Coordinates here are in clip space [-1,1].)
+  // For example, this triangle could represent one ear:
+  drawTriangle([
+    -0.7, 0.8,   
+    -0.5, 0.4,   
+    -0.9, 0.6
+  ]);
+  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  drawTriangle([
+    -.7, .6,
+    -.8, .6,
+    -.7, .7
+  ])
+
+  // ---------- right ear ----------
+  gl.uniform4f(u_FragColor, 0.0, 1.0, 0.0, 1.0);
+  drawTriangle([
+    0.7, 0.8,    
+    0.9, 0.6,    
+    0.5, 0.4     
+  ]);
+  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  drawTriangle([
+    .7, .6,
+    .8, .6,
+    .7, .7
+  ])
+
+
+  // ---------- head ----------
+  // Set the color to a brownish shade (for example).
+  gl.uniform4f(u_FragColor, 0.0, 1.0, 0.0, 1.0);
+  // A large triangle for a face:
+  
+  // bottom triangle
+  drawTriangle([
+    0.0, 0.0,  // top vertex
+    -0.3, -0.7,  // left vertex
+    0.3, -0.7   // right vertex
+  ]);
+  drawTriangle([
+    0.0, 0.0,   // top
+    0.3, -0.7,
+    0.65, -0.43
+  ])
+  drawTriangle([
+    0.0, 0.0, //top
+    0.65, -0.43, // left
+    0.7, -0.2
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    0.7, -0.2,
+    0.7, 0.2
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    0.7, 0.2,
+    0.65, 0.43
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    0.65, 0.43,
+    0.3, 0.7
+  ])
+  //top triangle
+  drawTriangle([
+    0.0, 0.0,
+    0.3, 0.7,
+    -0.3, 0.7
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    -0.3, 0.7,
+    -0.65, 0.43
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    -0.65, 0.43,
+    -.7, .2
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    -.7, .2,
+    -.7, -.2
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    -.7, -.2,
+    -.65, -.43
+  ])
+  drawTriangle([
+    0.0, 0.0,
+    -.65, -.43,
+    -0.3, -0.7
+  ])
+  
+  gl.uniform4f(u_FragColor, 0.0, .5, 0.0, 1.0);
+  drawTriangle([
+    0.0, -.6,
+    -.3, -.7,
+    .3, -.7
+  ])
+  drawTriangle([
+    .3, -.7,
+    .65, -.43,
+    .7, -.2
+  ])
+  drawTriangle([
+    -.3, -.7,
+    -.65, -.43,
+    -.7, -.2
+  ])
+
+  // ---------- left eye ----------
+  gl.uniform4f(u_FragColor, 1.0, 1.0, 1.0, 1.0);
+  
+  drawTriangle([
+    -.4, .15,
+    -.5, 0.23,
+    -.4, .3,
+  ]);
+
+  drawTriangle([
+    -.4, .23,
+    -.3, .3,
+    -.4, .3
+  ]);
+
+  drawTriangle([
+    -.3, .23,
+    -.4, 0.23,
+    -.3, .3,
+  ]);
+
+  drawTriangle([
+    -.3, .23,
+    -.4, .23,
+    -.4, .15
+  ])
+
+  drawTriangle([
+    -.4, .15,
+    -.3, .15,
+    -.3, .23
+  ])
+
+  drawTriangle([
+    -.3, .3,
+    -.3, .15,
+    -.2, .23
+    ])
+
+  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  
+  drawTriangle([
+    -.3, .19,
+    -.4, .19,
+    -.3, .27
+  ])
+
+  drawTriangle([
+    -.3, .27,
+    -.4, .27,
+    -.4, .19
+  ])
+  
+  // ---------- right eye ----------
+  // Change the color to red.
+  gl.uniform4f(u_FragColor, 1.0, 1.0, 1.0, 1.0);
+  
+  drawTriangle([
+    .4, .15,
+    .5, 0.23,
+    .4, .3,
+  ]);
+
+  drawTriangle([
+    .4, .23,
+    .3, .3,
+    .4, .3
+  ]);
+
+  drawTriangle([
+    .3, .23,
+    .4, 0.23,
+    .3, .3,
+  ]);
+
+  drawTriangle([
+    .3, .23,
+    .4, .23,
+    .4, .15
+  ])
+
+  drawTriangle([
+    .4, .15,
+    .3, .15,
+    .3, .23
+  ])
+
+  drawTriangle([
+    .3, .3,
+    .3, .15,
+    .2, .23
+    ])
+
+  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  
+  drawTriangle([
+    .3, .19,
+    .4, .19,
+    .3, .27
+  ])
+
+  drawTriangle([
+    .3, .27,
+    .4, .27,
+    .4, .19
+  ])
+
+  // ---------- nose ----------
+  gl.uniform4f(u_FragColor, 0.0, 0.6, 0.0, 1.0);
+  drawTriangle([
+    -.1, 0,
+    .1, 0,
+    0, .1
+  ])
+  drawTriangle([
+    .1, 0,
+    .1, .1,
+    0, .1
+  ])
+  drawTriangle([
+    .1, 0,
+    .2, .05,
+    .1, .1
+  ])
+  drawTriangle([
+    .2, .05,
+    .2, .1,
+    .1, .1
+  ])
+  drawTriangle([
+    .2, .1,
+    .15, .15,
+    .1, .1
+  ])
+
+  drawTriangle([
+    -.1, 0,
+    0, .1,
+    -.1, .1
+  ])
+
+  drawTriangle([
+    -.2, .05,
+    -.1, 0,
+    -.1, .1
+  ])
+  drawTriangle([
+    -.2, .05,
+    -.1, .1,
+    -.2, .1
+  ])
+  drawTriangle([
+    -.2, .1,
+    -.15, .15,
+    -.1, .1
+  ])
+  gl.uniform4f(u_FragColor, 0.0, 0.0, 0.0, 1.0);
+  drawTriangle([
+    .1, 0,
+    .15, 0,
+    .2, .05
+  ])
+  drawTriangle([
+    -.1, 0,
+    -.15, 0,
+    -.2, .05
+  ])
+
+  // ---------- mouth ----------
+  gl.uniform4f(u_FragColor, 0.4, 0.2, 0.0, 1.0);
+  drawTriangle([
+    0, -.2,
+    -.25, -.25,
+    .25, -.25
+  ])
+  drawTriangle([
+    0, -.2,
+    .25, -.25,
+    .25, -.2
+  ])
+  drawTriangle([
+    0, -.2,
+    .25, -.2,
+    .15, -.15
+  ])
+  drawTriangle([
+    .25, -.25,
+    .4, -.15,
+    .25, -.2
+  ])
+  drawTriangle([
+    .25, -.2,
+    .4, -.15,
+    .15, -.15
+  ])
+
+  drawTriangle([
+    0, -.2,
+    -.25, -.25,
+    -.25, -.2
+  ])
+  drawTriangle([
+    -0, -.2,
+    -.25, -.2,
+    -.15, -.15
+  ])
+  drawTriangle([
+    -.25, -.25,
+    -.4, -.15,
+    -.25, -.2
+  ])
+  drawTriangle([
+    -.25, -.2,
+    -.4, -.15,
+    -.15, -.15
+  ])
+  
+  
+  // ---------- left eye brow ----------
+  gl.uniform4f(u_FragColor, 0.3, 0.2, 0.2, 1.0);
+  drawTriangle([
+    -.3, .35,
+    -.3, .4,
+    -.4, .35
+  ])
+  drawTriangle([
+    -.4, .35,
+    -.3, .4,
+    -.4, .4
+  ])
+  drawTriangle([
+    -.5, .35,
+    -.4, .35,
+    -.4, .4
+  ])
+  drawTriangle([
+    -.3, .35,
+    -.25, .35,
+    -.3, .4
+  ])
+  drawTriangle([
+    -.3, .35,
+    -.2, .3,
+    -.25, .35
+  ])
+
+// ---------- right eye brow ----------
+  drawTriangle([
+    .3, .35,
+    .3, .4,
+    .4, .35
+  ])
+  drawTriangle([
+    .4, .35,
+    .3, .4,
+    .4, .4
+  ])
+  drawTriangle([
+    .5, .35,
+    .4, .35,
+    .4, .4
+  ])
+  drawTriangle([
+    .3, .35,
+    .25, .35,
+    .3, .4
+  ])
+  drawTriangle([
+    .3, .35,
+    .2, .3,
+    .25, .35
+  ])
+
+}
+
+
