@@ -367,7 +367,7 @@ function renderAllShapes(){
 
   // Check the time at the end of the function, and show on web page
   var duration = performance.now() - startTime;
-  sendTextToHTMl("numdot: " + Math.floor(duration) + " ms: " + Math.floor(duration) + " fps: " + Math.floor(10000/duration)/10, "numdot");
+  sendTextToHTMl(" fps: " + Math.floor(10000/duration)/10, "numdot");
 }
 
 function sendTextToHTMl(text, htmlID){
