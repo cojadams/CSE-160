@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blocky Octopus</title>
+    <style>
+      /* make the parent lay children out horizontally */
+      #app-container {
+        display: flex;
+        align-items: flex-start;    /* tops aligned */
+        gap: 20px;                   /* space between canvas & controls */
+      }
+  
+      /* fix the controls panel width (or let it flex if you prefer) */
+      #controls {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;            /* or whatever width you like */
+      }
+  
+      /* ensure the canvas stays its natural size */
+      #webgl {
+        /* remove block‐level default margins/paddings if any */
+        margin: 0;
+        padding: 0;
+        border: 1px solid #444;      /* optional border so you see its edge */
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+
+    <div id="app-container">
+    
+      <canvas id="webgl" width="600" height="600">
+        Please use a browser that supports “canvas”
+      </canvas>
+    
+      <div id="controls">
+  
+        <div>
+          
+        </div>
+
+     
+      <label for="headPulseSlider">
+        Head pulse amplitude: <span id="headPulseDisplay">0.15</span>
+      </label>
+      <input type="range" id="headPulseSlider" min=".1" max="0.25" step="0.01" value="0.15"/>
+  
+      <label for="headPulseSpeedSlider">
+        Head pulse Speed: <span id="headPulseSpeedDisplay">0.5</span>
+      </label>
+      <input type="range" id="headPulseSpeedSlider" min=".1" max="1" step="0.01" value="0.5"/>
+  
+      <p></p>
+      <label for="armSpeedSlider"> Arm Speed: <span id="armSpeedDisplay">1.5x</span></label>
+      <input type="range" id="armSpeedSlider" min="0.25" max="3" step="0.05" value="1.5"/>
+  
+      <p>
+        Arm1 Rotation 
+        <input type="range" id="arm1Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm1AngleDisplay">20°</span>
+  
+        Arm2 Rotation 
+        <input type="range" id="arm2Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm2AngleDisplay">20°</span>
+      </p>
+  
+      <p>
+        Arm3 Rotation 
+        <input type="range" id="arm3Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm3AngleDisplay">20°</span>
+  
+        Arm4 Rotation 
+        <input type="range" id="arm4Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm4AngleDisplay">20°</span>
+      </p>
+  
+      <p>
+        Arm5 Rotation 
+        <input type="range" id="arm5Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm5AngleDisplay">20°</span>
+  
+        Arm6 Rotation 
+        <input type="range" id="arm6Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm6AngleDisplay">20°</span>
+      </p>
+  
+      <p>
+        Arm7 Rotation 
+        <input type="range" id="arm7Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm7AngleDisplay">20°</span>
+  
+        Arm8 Rotation 
+        <input type="range" id="arm8Slider" min="-50" max="50" value="20" class="slider">
+        <span id="arm8AngleDisplay">20°</span>
+      </p>
+  
+      <div>
+        <label for="bodyR">Body-Color R: <span id="bodyRDisplay">0.77</span></label>
+        <input type="range" id="bodyR" min="0" max="1" step="0.01" value="0.75">
+      </div>
+      <div>
+        <label for="bodyG">Body-Color G: <span id="bodyGDisplay">0.50</span></label>
+        <input type="range" id="bodyG" min="0" max="1" step="0.01" value="0.00">
+      </div>
+      <div>
+        <label for="bodyB">Body-Color B: <span id="bodyBDisplay">1.00</span></label>
+        <input type="range" id="bodyB" min="0" max="1" step="0.01" value="0.30">
+      </div>
+  
+      
+      </div>
+    </div>
+
+    <p id="numdot">XXX</p>
+  
+        <p>
+          <strong>Click and Drag To Rotate!</strong><br>
+          <strong>Use Mousewheel To Zoom</strong> <br>
+          <br>
+            Rotation Sensitivity 
+            <input type="range" min="1" max="4" value="2" class="slider" id="rotationFactor">
+          <br>
+          <strong>Animation:</strong>
+          <button id="armAnimOnButton">ON</button>
+          <button id="armAnimOffButton">OFF</button>
+        </p>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="Triangle3D.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="BlockyAnimal.js"></script>
+  </body>
+</html>
+  
