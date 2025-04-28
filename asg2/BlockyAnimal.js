@@ -148,21 +148,25 @@ function addActionsForHtmlUI(){
   document.getElementById('armAnimOnButton').onclick  = () => { g_armAnimation = true;  };
   document.getElementById('armAnimOffButton').onclick = () => { g_armAnimation = false; };
 
-  // head pulse Events
+ // head‐pulse amplitude slider
   const headPulseSlider  = document.getElementById('headPulseSlider');
   const headPulseDisplay = document.getElementById('headPulseDisplay');
   headPulseSlider.addEventListener('input', function() {
     g_headPulseAmp = Number(this.value);
     headPulseDisplay.textContent = this.value;
+    // ← force an immediate redraw
+    renderAllShapes();
   });
 
+  // head‐pulse speed slider
   const headPulseSpeedSlider  = document.getElementById('headPulseSpeedSlider');
   const headPulseSpeedDisplay = document.getElementById('headPulseSpeedDisplay');
   headPulseSpeedSlider.addEventListener('input', function() {
     g_headSpeed = Number(this.value);
     headPulseSpeedDisplay.textContent = this.value;
+    // ← force an immediate redraw
+    renderAllShapes();
   });
-
   // Arm speed slider
   const armSpeedSlider = document.getElementById('armSpeedSlider');
   const armSpeedDisplay = document.getElementById('armSpeedDisplay');
