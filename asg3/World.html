@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blocky Octopus</title>
+    <style>
+      /* make the parent lay children out horizontally */
+      #app-container {
+        display: flex;
+        align-items: flex-start;    /* tops aligned */
+        gap: 20px;                   /* space between canvas & controls */
+      }
+  
+      /* fix the controls panel width (or let it flex if you prefer) */
+      #controls {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;            /* or whatever width you like */
+      }
+  
+      /* ensure the canvas stays its natural size */
+      #webgl {
+        /* remove block‐level default margins/paddings if any */
+        margin: 0;
+        padding: 0;
+        border: 1px solid #444;      /* optional border so you see its edge */
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+
+    <div id="app-container">
+    
+      <canvas id="webgl" width="600" height="600">
+        Please use a browser that supports “canvas”
+      </canvas>
+    
+      <div id="controls">
+  
+        <div>
+          
+        </div>
+  
+      
+      </div>
+    </div>
+
+    <p id="numdot">XXX</p>
+  
+        <p>
+          <strong>Click the canvas to to control the camera</strong><br>
+          <strong>W = forward <br> A = left <br> D = right <br >S = down <br> space bar = up <br> shiftkey = down</strong> <br>
+          
+        </p>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Point.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Map.js"></script>
+    <script src="World.js"></script>
+  </body>
+</html>
