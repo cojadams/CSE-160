@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ATTEMPT 2!</title>
+    <style>
+      /* make the parent lay children out horizontally */
+      #app-container {
+        display: flex;
+        align-items: flex-start;    /* tops aligned */
+        gap: 20px;                   /* space between canvas & controls */
+      }
+  
+      /* fix the controls panel width (or let it flex if you prefer) */
+      #controls {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;            /* or whatever width you like */
+      }
+  
+      /* ensure the canvas stays its natural size */
+      #webgl {
+        /* remove block‐level default margins/paddings if any */
+        margin: 0;
+        padding: 0;
+        border: 1px solid #444;      /* optional border so you see its edge */
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+
+    <div id="app-container">
+    
+      <canvas id="webgl" width="600" height="600">
+        Please use a browser that supports “canvas”
+      </canvas>
+    
+      <div id="controls">
+  
+        <p>
+          <!-- <br>
+          <strong>Ambient:</strong>
+          <button id="ambientOn">ON</button>
+          <button id="ambientOff">OFF</button>
+        </br>
+        <br>
+          <strong>Diffuse:</strong>
+          <button id="diffuseOn">ON</button>
+          <button id="diffuseOff">OFF</button>
+        </br>
+          <strong>Specular:</strong>
+          <button id="specularOn">ON</button>
+          <button id="specularOff">OFF</button> -->
+        <br>
+          <strong>Shading Mode:</strong>
+          <button id="flatMode">Flat</button>
+          <button id="normalMode">Normals</button>
+          <button id="phongMode">Phong</button>
+        </br>
+        <br>
+          <strong>Lighting Normals:</strong>
+          <button id="lightOn">Light On</button>
+          <button id="lightOff">Light Off</button>
+        </br>
+
+        <br>
+          <strong>pointlight Animation:</strong>
+          <button id="pointAnimateOn">ON</button>
+          <button id="pointAnimateOff">OFF</button>
+        </br>
+        </p>
+<!--           
+          <button id="normalOn"> Normal On</button>
+          <button id="normalOff"> Normal Off</button>
+          <br>
+          <button id="lightOn"> Light On </button>
+          <button id="lightOff"> Light Off </button> -->
+          <br>
+          <!-- Light X <input type="range" min="-250" max="250" value="0" class="slider" id="lightSlideX">
+          <br>
+          Light Y <input type="range" min="-250" max="250" value="0" class="slider" id="lightSlideY">
+          <br>
+          Light Z <input type="range" min="-250" max="250" value="0" class="slider" id="lightSlideZ"> -->
+          
+          <div>
+            <label for="diffuseR">Diffuse Light Color: red<span id="diffuseRDisplay">1</span></label>
+            <input type="range" id="diffuseR" min="0" max="1" step="0.01" value="1">
+          </div>
+          <div>
+            <label for="diffuseG">Diffuse Light Color: green<span id="diffuseGDisplay">1</span></label>
+            <input type="range" id="diffuseG" min="0" max="1" step="0.01" value="1">
+          </div>
+          <div>
+            <label for="diffuseB">Diffuse Light Color: blue<span id="diffuseBDisplay">1</span></label>
+            <input type="range" id="diffuseB" min="0" max="1" step="0.01" value="1">
+          </div>
+          
+          <div>
+            <label for="specularR">Specular Light Color: red<span id="specularRDisplay">1</span></label>
+            <input type="range" id="specularR" min="0" max="1" step="0.01" value="1">
+          </div>
+          <div>
+            <label for="specularG">Specular Light Color: green<span id="specularGDisplay">1</span></label>
+            <input type="range" id="specularG" min="0" max="1" step="0.01" value="1">
+          </div>
+          <div>
+            <label for="specularB">Specular Light Color: blue<span id="specularBDisplay">1</span></label>
+            <input type="range" id="specularB" min="0" max="1" step="0.01" value="1">
+          </div>
+          
+        </div>
+  
+      
+      </div>
+    </div>
+
+    <p id="numdot">XXX</p>
+  
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+    <script src="Camera.js"></script>
+    <script src="models/model.js"></script>
+    <script src="models/Cube.js"></script>
+    <script src="models/sphere.js"></script>
+    <script src="asg4.js"></script>
+    
+    <!-- <script src="Sphere.js"></script> -->
+    <!-- <script src="Map.js"></script> -->
+    <!-- <script src="Cylinder.js"></script> -->
+    <!-- <script src="Triangle.js"></script> -->
+    <!-- <script src="Point.js"></script> -->
+
+  </body>
+</html>
