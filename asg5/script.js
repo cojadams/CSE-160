@@ -231,6 +231,7 @@ function main() {
 	}
 
 	const gui = new GUI();
+	gui.hide();
 
 	gui.close();
 	gui.add( camera, 'fov', 1, 180 );
@@ -386,10 +387,10 @@ function main() {
 		
 		const cameraHelper = new THREE.CameraHelper( cam );
 		// scene.add( cameraHelper );
-		cameraHelper.visible = true;
+		cameraHelper.visible = false;
 		const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
 		// scene.add( helper );
-		helper.visible = true;
+		helper.visible = false;
 
 		function directionalMakeXYZGUI( gui, vector3, name, onChangeFn ) {
 
