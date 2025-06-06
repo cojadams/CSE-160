@@ -598,12 +598,12 @@ function main() {
 		progressbarElem.style.width = `${itemsLoaded / itemsTotal * 100 | 0}%`;
 	}
 	const models = {
-		gtr: { url: 'resources/City_Pack/Nissan_GTR.glb'},
-		punk: {url: 'resources/City_Pack/Punk.glb'},
-		building: {url: 'resources/City_Pack/Building.glb'},
-		Hospital: {url: 'resources/City_Pack/Hospital.glb'},
-		hotel: {url: 'resources/City_Pack/Hotel_Building.glb'},
-		apartment: {url: 'resources/City_Pack/Apartment_Building.glb'},
+		gtr: { url: './resources/City_Pack/Nissan_GTR.glb'},
+		punk: {url: './resources/City_Pack/Punk.glb'},
+		building: {url: './resources/City_Pack/Building.glb'},
+		Hospital: {url: './resources/City_Pack/Hospital.glb'},
+		hotel: {url: './resources/City_Pack/Hotel_Building.glb'},
+		apartment: {url: './resources/City_Pack/Apartment_Building.glb'},
 		
 	};
 	{
