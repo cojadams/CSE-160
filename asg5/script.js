@@ -238,7 +238,7 @@ function main() {
 	gui.add( minMaxGUIHelper, 'min', 0.1, 200, 0.1 ).name( 'near' );
 	gui.add( minMaxGUIHelper, 'max', 0.1, 200, 0.1 ).name( 'far' );
 
-	scene.add( cameraHelper );
+	// scene.add( cameraHelper );
 
 	// camera 2
 	// const camera2 = new THREE.PerspectiveCamera(
@@ -385,10 +385,10 @@ function main() {
 		cam.bottom = - 40;
 		
 		const cameraHelper = new THREE.CameraHelper( cam );
-		scene.add( cameraHelper );
+		// scene.add( cameraHelper );
 		cameraHelper.visible = true;
 		const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
-		scene.add( helper );
+		// scene.add( helper );
 		helper.visible = true;
 
 		function directionalMakeXYZGUI( gui, vector3, name, onChangeFn ) {
@@ -406,11 +406,11 @@ function main() {
 			// update the light target's matrixWorld because it's needed by the helper
 			dirLight.updateMatrixWorld();
 			dirLight.target.updateMatrixWorld();
-			helper.update();
+			// helper.update();
 			// update the light's shadow camera's projection matrix
 			dirLight.shadow.camera.updateProjectionMatrix();
 			// and now update the camera helper we're using to show the light's shadow camera
-			cameraHelper.update();
+			// cameraHelper.update();
 
 		}
 
@@ -533,7 +533,7 @@ function main() {
 		scene.add( pointLight );
 
 		const spotHelper = new THREE.PointLightHelper( pointLight );
-		scene.add( spotHelper );
+		// scene.add( spotHelper );
 
 		function updateLight() {
 
@@ -563,7 +563,7 @@ function main() {
 		scene.add( spotLight.target );
 
 		const helper = new THREE.SpotLightHelper( spotLight );
-		scene.add( helper );
+		// scene.add( helper );
 
 		function updateLight() {
 
@@ -982,7 +982,7 @@ function main() {
 			}
 			this.boundingBox = new THREE.Box3();
 			this._boxHelper = new THREE.Box3Helper(this.boundingBox, 0xff0000);
-    		scene.add(this._boxHelper);
+    		// scene.add(this._boxHelper);
 			this.moveSpeed = moveSpeed;
 			this.rotSmoothFactor = rotSmoothFactor;
 			
@@ -1086,7 +1086,7 @@ function main() {
 
     		// (Optional) helper in green
     		this._boxHelper = new THREE.Box3Helper(this.boundingBox, 0x00ff00);
-    		scene.add(this._boxHelper);
+    		// scene.add(this._boxHelper);
 
 		}
 		update() {
